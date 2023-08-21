@@ -1,0 +1,9 @@
+/* Import all the common components */
+@import url('common/buttons.css');
+@import url('common/containers.css');
+@import url('common/forms.css');
+@import url('common/text.css');
+@import url('common/colors.css');
+
+/* Import the theme */
+@import url('dark_theme.css')

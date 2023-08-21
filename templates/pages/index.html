@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Stress Log</title>
     {% include "components/header.html" %}
     <link href="{{ url_for('static', filename='css/pages/index.css') }}" rel="stylesheet">
 </head>
+
 <body>
-    <p>Hello</p>
+    <div class="horizontal-container">
+        <span class="title">Please Enter a Stressor or Relaxor</span>
+        <form method="POST">
+            <field>
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Name" />
+            </field>
+            <field>
+                <label>Level</label>
+                <input type="number" name="level" placeholder="3" />
+            </field>
+            <field>
+                <label>Description</label>
+                <input type="text" name="description" placeholder="Authority" />
+            </field>
+            <field style="height: 5rem; display: block;">
+                <radiofield>
+                    <radio>
+                        <input id="radio-stressor" type="radio" name="is_stress_relax" value="stressor" />
+                        <label for="radio-stressor">Stressor</label>
+                    </radio>
+                    <radio>
+                        <input id="radio-relaxor" type="radio" name="is_stress_relax" value="relaxor" />
+                        <label for="radio-relaxor">Relaxor</label>
+                    </radio>
+                </radiofield>
+            </field>
+            <buttons style="justify-content: space-between;">
+                <input type="submit" value="Record" />
+                <a class="button green" href="/archive">See Archive</a>
+            </buttons>
+            
+        </form>
+        <div hidden>test{{results}}</div>
+    </div>
 </body>
+
 </html>
