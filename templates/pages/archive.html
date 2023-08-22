@@ -10,24 +10,31 @@
 
 <body>
     <div class="horizontally-centered">
-        <span class="title">The Archive</span>
+        <div class="title">The Archive</div>
+        <div class="box">
+            <a class="button green" href="/">Back to Home</a>
+        </div>
         <div class="scattered-container">
             {% for node in nodes %}
-            {% if node['STRESS_RELAX'] == "stressor" %}
+            {% if node['stress_relax'] == "stressor" %}
             {% set color = "bad" %}
             {% else %}
             {% set color = "good" %}
             {% endif %}
             <div class="box">
                 <attribute class="{{color}}">
-                    <span>{{node['NAME']}}</span>
-                    <span>{{node['DATE']}}</span>
+                    <span>{{node['name']}}</span>
+                    <span>{{node['date']}}</span>
+                </attribute>    
+                <attribute class="{{color}}">
+                    <span>{{node['stress_relax']}}</span>
+                    <span>{{node['level']}}</span>
                 </attribute>
                 <attribute class="{{color}}">
-                    <span>{{node['STRESS_RELAX']}}</span>
-                    <span>{{node['LEVEL']}}</span>
+                    <span>{{node['topic']}}</span>
+                    <span></span>
                 </attribute>
-                <div class="blurb">{{node['DESCRIPTION']}}</div>
+                <div class="blurb">{{node['description']}}</div>
             </div>
             {% endfor %}
         </div>

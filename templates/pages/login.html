@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    {% include "components/header.html" %}
+    <link href="{{ url_for('static', filename='css/pages/login.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="horizontal-container">
+        <span class="title">Login or Register</span>
+        <form method="post">
+            <!-- A basic login with a username password and one submit button -->
+            <field>
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Your Username" />
+            </field>
+            <field>
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Your Password" />
+            </field>
+            <buttons style="justify-content: space-between;">
+                <input type="submit" value="Enter" />
+            </buttons>
+        </form>
+        {% if error %}
+        <div class="box bad">{{error}}</div>
+        {% endif %}
+        <notes>
+            This login does not require an email. If the username already exists, you must use the original password used when originally logged in. No forgot password is available as a result.
+        </notes>
+    </div>
+</body>
+
+</html>

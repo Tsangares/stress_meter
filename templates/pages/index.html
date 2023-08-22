@@ -10,11 +10,19 @@
 
 <body>
     <div class="horizontal-container">
-        <span class="title">Please Enter a Stressor or Relaxor</span>
+        <span class="title">Express a Stressor or Relaxor</span>
+        {% if results %}
+        <div class="box bad">{{results['error']}}</div>
+        {% endif %}
+        <span></span>
         <form method="POST">
             <field>
                 <label>Name</label>
-                <input type="text" name="name" placeholder="Name" />
+                <input readonly type="text" name="name" placeholder="Your Name" value="{{current_user.id.title()}}" />
+            </field>
+            <field>
+                <label>Topic</label>
+                <input type="text" name="topic" placeholder="A descriptive one or two words to describe the topic." />
             </field>
             <field>
                 <label>Level</label>
@@ -42,7 +50,6 @@
             </buttons>
             
         </form>
-        <div hidden>test{{results}}</div>
     </div>
 </body>
 
